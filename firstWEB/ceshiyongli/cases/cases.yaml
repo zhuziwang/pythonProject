@@ -1,0 +1,21 @@
+#用例
+loginPage:
+  - title: 登录用例
+    cases:
+      - name: 打开登录页
+        method: geturl
+        url: http://my.kouyu100.com/demo0
+
+      - name: 输入用户名
+        method: input
+        locator: //*[@id="username"]
+        value: 1325461566
+
+      - name: 输入密码
+        method: input
+        locator: //*[@id="username"]
+        value: 1325461566
+
+      - name: 点击登录按钮
+        method: click
+        locator: //*[@id="username"]
