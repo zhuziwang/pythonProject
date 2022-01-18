@@ -14,17 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from firstWEB import views
+from django.urls import include,path
 
 urlpatterns = [
     path('', views.login_selenium),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls,name='admin'),
     path('index', views.index),
     path('calpage/', views.CalPage),
     path('cal', views.Cal),
     path('list', views.CalList),
     path('del', views.DelData),
     path('login', views.login_selenium),
-    path('login_selenium_run', views.login_selenium_run)
+    path('login_selenium_run', views.login_selenium_run),
+    path('firstWEB/', include('firstWEB.urls', namespace='firstWEB'))
 ]
