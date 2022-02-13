@@ -1,0 +1,16 @@
+selenium
+selenium.webdriver.common.action_chains
+selenium.webdriver.support.select
+os
+time
+logging
+smtplib
+email.mime.text
+email.header
+email.mime.image  # 图片类型邮件
+email.mime.application
+email.mime.multipart  # 创建附件类型
+pytesseract
+sys
+cv2
+pymysql
