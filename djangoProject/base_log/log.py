@@ -2,6 +2,7 @@
 
 import logging
 import time
+from ..settings import BASE_DIR
 from logging import handlers
 
 class Log():
@@ -33,8 +34,8 @@ class Log():
         '''文件处理器'''
 
         str_time = self.get_str_time()
-
-        file_handler = logging.FileHandler('./'+str_time+'-log.txt', mode='a', encoding="utf-8")
+        BASE_DIR_PATH = str(BASE_DIR)
+        file_handler = logging.FileHandler(BASE_DIR_PATH+'\\djangoProject\\base_log\\' +str_time + '-log.txt', mode='a',encoding="utf-8")
         file_handler.setLevel(level)
         # 处理器格式
         file_handler.setFormatter(self.get_formatter()[1])

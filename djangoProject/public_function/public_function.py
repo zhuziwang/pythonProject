@@ -2,15 +2,15 @@
 
 import pickle,base64
 from selenium import webdriver
+from ..settings import BASE_DIR
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 import os
 import time
-
 from djangoProject.base_log.log import Log
 
 class PublicFunction():
-    '''项目的公用方法'''
+    """项目的公用方法"""
 
     def __init__(self):
         log = Log()
@@ -21,20 +21,21 @@ class PublicFunction():
         str_time = str(str_time)
         return str_time
 
-    def windows_screenshot(self,url):
+    def windows_screenshot(self, url):
         '''
         谷歌浏览器打开一个网页并截图保存
         :param url:
         :return: 图片
         '''
 
+        BASE_DIR_PATH = str(BASE_DIR)
         driver= webdriver.Chrome()
         driver.implicitly_wait(20)
         driver.get(url)
         driver.maximize_window()
         picture_time = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
         try:
-            driver.get_screenshot_as_file('public_function\\windows_screenshot_image\\'+picture_time+'.png')
+            driver.get_screenshot_as_file(BASE_DIR_PATH+'\\djangoProject\\public_function\\windows_screenshot_image\\'+picture_time+'.png')
             self.logger.info('截图成功')
         except BaseException as msg:
             self.logger.debug(msg)
